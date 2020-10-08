@@ -9,21 +9,22 @@ let personalMovieDB = {
     privat: false
 };
 
-for (let i = 0; i < numberOfFilms;){
+for (let i = 0; i < numberOfFilms; i++){
     let q = prompt("Один из последних посмотренных фильмов", "");
     let a = prompt("На сколько оцените его?", "");
-    if(q != '' && q != null && q.length < 50){
-        if(a != '' && a != null && a.length < 50){
-            i++;
-        }
+    if(q != '' && a != '' && q != null && a != null && q.length < 50){
+        personalMovieDB.movies[q] = a;
+        console.log('done');
+    } else {
+        console.log('error');
+        i--;
     }
-    personalMovieDB.movies[q] = a;
 }
 if(personalMovieDB.count < 10) {
     alert('Просмотрено довольно мало фильмов');
-} else if(personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+} else if(personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
     alert('Вы классический зритель')
-} else if(personalMovieDB.count > 30){
+} else if(personalMovieDB.count >= 30){
     alert('Вы киноман');
 } else{
     alert('error');
